@@ -10,7 +10,7 @@
 **Power draw**: 280W (idle) / 1200W (inference)
 
 **Feel free to ask any questions and/or share any comments in the issues section here or in the medium article:** 
-https://medium.com/@ai-infos/
+https://medium.com/@ai-infos/8x-amd-mi50-32gb-at-26-t-s-tg-with-minimax-m2-1-and-15-t-s-tg-with-glm-4-7-vllm-gfx906-2c38577ef98a
 
 
 
