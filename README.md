@@ -1,5 +1,5 @@
 
-# Guidances for Test setup of 8 AMD MI50 32GB (LLM)
+# Guidances for Test setup of 8 AMD MI50 32GB (MiniMax-M2.1 & GLM 4.7)
 
 ![illustration](illustration.png)
 
