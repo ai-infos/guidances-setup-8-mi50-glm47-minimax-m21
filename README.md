@@ -143,6 +143,7 @@ NCCL_P2P_DISABLE=1 VLLM_USE_TRITON_AWQ=1 OMP_NUM_THREADS=4 NCCL_DEBUG=INFO vllm 
   --served-model-name GLM-4.7-AWQ \
   --speculative-config.method mtp \
   --speculative-config.num_speculative_tokens 1 \
+  --chat-template ~/llm/models/GLM-4.7-AWQ/chat_template_glm47_no_clear_thinking.jinja \
   --tensor-parallel-size 8 --tool-call-parser glm47 --reasoning-parser glm45 \
   --enable-auto-tool-choice --max-model-len 95000 --swap-space 0 2>&1 | tee log.txt
 ```
@@ -150,6 +151,17 @@ NCCL_P2P_DISABLE=1 VLLM_USE_TRITON_AWQ=1 OMP_NUM_THREADS=4 NCCL_DEBUG=INFO vllm 
 **Performance peak**: TG (token generation): **15.6 tok/s** / PP (prompt processing): variable according to request length (e.g. ~3000 tok/s for 30000 tokens input; in general, speed ~= tokens_input/10 tok/s)
 
 **Enjoy your most cost effective solution of the world for one of the best fast intelligent local inference setup (at the moment).**
+
+#### Settings for multi-turn agentic tasks
+
+1) replace ~/llm/models/GLM-4.7-AWQ/generation_config.json by the one provided here, which contains the following settings for agentic tasks: `"temperature": 0.7`, `"top_p": 1.0`
+
+
+2) Turn on **Preserved Thinking** mode by adding chat_template_glm47_no_clear_thinking.jinja (provided here) in your repository (~/llm/models/GLM-4.7-AWQ/), which adds to the default chat_template: `clear_thinking = false`.
+
+**sources**: 
+- https://huggingface.co/zai-org/GLM-4.7
+- https://docs.z.ai/guides/capabilities/thinking-mode 
 
 ### Run Open-WebUI
 
